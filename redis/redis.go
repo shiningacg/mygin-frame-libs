@@ -6,8 +6,12 @@ import (
 	"time"
 )
 
-func OpenRedis(config *Config) {
+func OpenRedis(config *Config, options ...ConfigOption) {
 	ctx, cancel := context.WithTimeout(context.TODO(), time.Second*2)
+	if options == nil {
+		options = []ConfigOption{OptionDefault}
+	}
+	useOption(config, options)
 	rdb := redis.NewClient(config.Adapter())
 	_, err := rdb.Ping(ctx).Result()
 	cancel()

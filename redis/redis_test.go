@@ -8,9 +8,8 @@ import (
 
 func TestOpenRedis(t *testing.T) {
 	OpenRedis(&Config{
-		Host:     "127.0.0.1:6379",
-		Secret:   "",
-		Identity: DEFAULT,
+		Host:   "127.0.0.1:6379",
+		Secret: "",
 	})
 	_, err := Default().Set(context.TODO(), "test", "aaa", 0).Result()
 	if err != nil {
