@@ -3,8 +3,8 @@ package mygin_frame_libs
 import (
 	"encoding/json"
 	"errors"
-	"github.com/shlande/mygin-frame-libs/mysql"
-	"github.com/shlande/mygin-frame-libs/redis"
+	"github.com/shiningacg/mygin-frame-libs/mysql"
+	"github.com/shiningacg/mygin-frame-libs/redis"
 	"io/ioutil"
 	"os"
 )

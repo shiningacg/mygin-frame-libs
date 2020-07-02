@@ -3,8 +3,8 @@ package mygin_frame_libs
 import (
 	"context"
 	"fmt"
-	"github.com/shlande/mygin-frame-libs/mysql"
-	"github.com/shlande/mygin-frame-libs/redis"
+	"github.com/shiningacg/mygin-frame-libs/mysql"
+	"github.com/shiningacg/mygin-frame-libs/redis"
 	"testing"
 )
 

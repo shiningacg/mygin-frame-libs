@@ -1,4 +1,4 @@
-module github.com/shlande/mygin-frame-libs
+module github.com/shiningacg/mygin-frame-libs
 
 go 1.14
 
