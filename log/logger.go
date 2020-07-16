@@ -9,7 +9,7 @@ import (
 
 var _Logger *Logger
 
-func OpenLog(l *LoggerConfig, options ...LoggerOption) {
+func OpenLog(l *Config, options ...LoggerOption) {
 	_Logger = &Logger{
 		l: l,
 	}
@@ -29,7 +29,7 @@ type Logger struct {
 	writer    io.WriteCloser
 	errLogger *log.Logger
 	logger    *log.Logger
-	l         *LoggerConfig
+	l         *Config
 }
 
 func (l *Logger) Fatal(data interface{}) {

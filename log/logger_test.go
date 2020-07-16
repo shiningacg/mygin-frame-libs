@@ -5,7 +5,7 @@ import (
 )
 
 func TestTimePostFix(t *testing.T) {
-	OpenLog(&LoggerConfig{},
+	OpenLog(&Config{},
 		DefaultLogger,
 		LoggerOutput(LoggerPostFixTime))
 	_Logger.Log("Hello world")

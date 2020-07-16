@@ -4,9 +4,9 @@ import "fmt"
 
 import "time"
 
-type LoggerOption func(l *LoggerConfig)
+type LoggerOption func(l *Config)
 
-func DefaultLogger(l *LoggerConfig) {
+func DefaultLogger(l *Config) {
 	if l.LogName == "" {
 		l.LogName = "log"
 	}
@@ -26,12 +26,12 @@ func DefaultLogger(l *LoggerConfig) {
 }
 
 func LoggerOutput(postfixOption ...PostFixOption) LoggerOption {
-	return func(l *LoggerConfig) {
+	return func(l *Config) {
 		l.PostFix = postfixOption
 	}
 }
 
-type LoggerConfig struct {
+type Config struct {
 	LogDir     string
 	LogName    string
 	ErrLogName string
