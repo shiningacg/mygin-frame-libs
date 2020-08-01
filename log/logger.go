@@ -38,7 +38,7 @@ func (l *Logger) Fatal(data interface{}) {
 		log.Println(data)
 		return
 	}
-	l.errLogger.Fatalln(data)
+	l.errLogger.Println(data)
 }
 
 func (l *Logger) Log(data interface{}) {
