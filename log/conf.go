@@ -13,9 +13,6 @@ func DefaultLogger(l *Config) {
 	if l.ErrLogName == "" {
 		l.ErrLogName = "err"
 	}
-	if l.LogDir == "" {
-		l.LogDir = "./log"
-	}
 	if l.PostFix == nil {
 		l.PostFix = []PostFixOption{LoggerPostFixTime}
 	}

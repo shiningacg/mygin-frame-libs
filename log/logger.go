@@ -51,6 +51,9 @@ func (l *Logger) Log(data interface{}) {
 }
 
 func (l *Logger) outputPath(logName string) string {
+	if l.l.LogDir == "" {
+		return ""
+	}
 	for _, postfix := range l.l.PostFix {
 		logName = postfix(logName, l)
 	}
@@ -83,16 +86,28 @@ func (l *Logger) Close() {
 
 // 切换输出文件
 func (l *Logger) newOutput() {
+	var writer, errWriter *os.File
+	var err error
 	// 关闭已经打开的日志
 	l.closeAll()
 	// 尝试打开文件
-	writer, err := os.Create(l.outputPath(l.l.LogName))
+	logPath := l.outputPath(l.l.LogName)
+	if logPath == "" {
+		writer = os.Stdout
+	} else {
+		writer, err = os.Create(logPath)
+	}
 	if err != nil {
 		writer = os.Stdout
 		fmt.Println(err)
 	}
 	l.writer = writer
-	errWriter, err := os.Create(l.outputPath(l.l.ErrLogName))
+	errPath := l.outputPath(l.l.ErrLogName)
+	if errPath == "" {
+		errWriter = os.Stdout
+	} else {
+		errWriter, err = os.Create(errPath)
+	}
 	if err != nil {
 		errWriter = os.Stdout
 		fmt.Println(err)
